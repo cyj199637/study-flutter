@@ -33,12 +33,79 @@ class YHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[300],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("죠르디"),
+        title: Text("NINIZ"),
+        titleTextStyle: TextStyle(
+          color: Color.fromARGB(255, 161, 140, 123),
+          letterSpacing: 2.0,
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold
+        ),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 144, 235, 165),
+        backgroundColor: Color.fromARGB(255, 253, 237, 188),
         elevation: 0.0,
+        // actions: 복수의 아이콘 버튼이나 위젯을 오른쪽에 배치할 때 사용
+        actions: [
+          IconButton(
+            onPressed: () {
+              print("shopping cart button is clicked");
+            },
+            icon: Icon(Icons.shopping_cart)
+          ),
+          IconButton(
+            onPressed: () {
+              print("search button is clicked");
+            },
+            icon: Icon(Icons.search)
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("토레타"),
+              accountEmail: Text("jyj@sixshop.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage("assets/jordi_img.png"),
+              ),
+              onDetailsPressed: () {
+                print("arrow is clicked");
+              },
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 144, 235, 165),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40.0),
+                  bottomRight: Radius.circular(40.0)
+                )
+              ),
+            ),
+            ListTile(
+              // leading: 행 시작에 요소 추가 <-> trailing: 행 마지막에 요소 추가
+              leading: Icon(Icons.home, color: Colors.grey,),
+              title: Text("Home"),
+              onTap: () {
+                print("Home is clinked");
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings, color: Colors.grey,),
+              title: Text("Setting"),
+              onTap: () {
+                print("Setting is clinked");
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.question_answer, color: Colors.grey,),
+              title: Text("Q&A"),
+              onTap: () {
+                print("Q&A is clinked");
+              },
+            )
+          ],
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(50.0, 40.0, 0.0, 0.0),
@@ -46,7 +113,7 @@ class YHomePage extends StatelessWidget {
           children: [
             Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage("assets/jordi_img.png"),
+                backgroundImage: AssetImage("assets/niniz.png"),
                 radius: 80.0,
               ),
             ),
@@ -63,7 +130,7 @@ class YHomePage extends StatelessWidget {
                   children: [
                     Text("NAME",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 161, 140, 123),
                         letterSpacing: 2.0,
                       ),
                     ),
@@ -72,7 +139,7 @@ class YHomePage extends StatelessWidget {
                     ),
                     Text("죠르디",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.green[300],
                         letterSpacing: 2.0,
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold
@@ -83,7 +150,7 @@ class YHomePage extends StatelessWidget {
                     ),
                     Text("POWER LEVEL",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 161, 140, 123),
                         letterSpacing: 2.0,
                       ),
                     ),
@@ -92,7 +159,7 @@ class YHomePage extends StatelessWidget {
                     ),
                     Text("10",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.green[300],
                           letterSpacing: 2.0,
                           fontSize: 28.0,
                           fontWeight: FontWeight.bold
